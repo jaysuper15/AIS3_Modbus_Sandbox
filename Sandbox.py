@@ -2,7 +2,7 @@ class Light:
     state = 0
 
     def __init__(self):
-        print()
+        pass
 
 
 class SandBox:
