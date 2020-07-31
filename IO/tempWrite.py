@@ -8,10 +8,10 @@ def write(host, dataList, unit):
     except:
         print("[X](write)connection failed.")
         return False
-    for addr in range(0, len(dataList)):
+    for registerIndex in range(0, len(dataList)):
         try:
-            print("[-]Write regsiter %s(%s) to %s" % (addr, dataList[addr], unit))
-            client.write_register(starterAddress+addr, dataList[addr], unit=unit)
+            print("[-]Write regsiter register:%s (value: %s) to unit: %s." % (starterAddress + registerIndex, dataList[registerIndex], unit))
+            client.write_register(starterAddress+registerIndex, dataList[registerIndex], unit=unit)
         except:
             print("[X]unable to write data to unit:%d" % (unit))
             return False

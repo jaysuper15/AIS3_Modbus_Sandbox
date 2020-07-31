@@ -1,7 +1,8 @@
 from pymodbus.client.sync import ModbusTcpClient
 
 
-def read(host, addr, count, unit):
+def read(host, registerIndex, registerSize, unit):
+    starterAddress = 14
     try:
         client = ModbusTcpClient(host)
     except:
@@ -9,7 +10,7 @@ def read(host, addr, count, unit):
         return False
 
     try:
-        result = client.read_holding_registers(addr, count, unit=unit)
+        result = client.read_holding_registers(starterAddress + registerIndex, registerSize, unit=unit)
         client.close()
         return result.registers
     except:
